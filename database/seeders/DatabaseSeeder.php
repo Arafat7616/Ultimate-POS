@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -16,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([BarcodesTableSeeder::class,
             PermissionsTableSeeder::class,
             CurrenciesTableSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\TaxRate;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('business', function (Blueprint $table) {
-            $table->integer('default_sales_tax')->unsigned()->nullable()->after('tax_label_2');
-            $table->foreign('default_sales_tax')->references('id')->on('tax_rates');
+            $table->foreignIdFor(TaxRate::class, "default_sales_tax")->cascadeOnDelete()->after('tax_label_2');
         });
     }
 
